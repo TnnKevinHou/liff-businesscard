@@ -10,7 +10,7 @@
       desc: '由 LINE API 專家戴均民所開發，可免費製作及分享！',
       descColor: '#000000',
       image: 'https://i.imgur.com/1KZoSue.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/',
+      link: '',
       title: 'LINE 數位版名片',
       titleColor: '#000000',
       btns: [
@@ -33,13 +33,13 @@
       desc: '來自 LINE 的樣板，最多 12 張卡片，很適合用來製作廣告傳單。',
       descColor: '#000000',
       image: 'https://i.imgur.com/0pbirUY.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/forms/line-carousel-1.html',
+      link: '',
       title: '多頁訊息 1',
       titleColor: '#000000',
       btns: [
         {
           color: '#17c950',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/forms/line-carousel-1.html',
+          link: '',
           style: 'primary',
           text: '🆓 免費製作',
         },
@@ -53,13 +53,13 @@
     },
     {
       image: 'https://i.imgur.com/hO0LAHK.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/forms/facebook-post-link-1.html',
+      link: '',
       desc: '讓你在 LINE 中模擬 Facebook 分享連結，並且還可再次分享！',
       title: 'Facebook Post Link',
       btns: [
         {
           color: '#17c950',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/forms/facebook-post-link-1.html',
+          link: '',
           text: '🆓 免費製作',
           style: 'primary',
         },
@@ -76,13 +76,13 @@
     },
     {
       image: 'https://i.imgur.com/gJASJdW.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/forms/acnh-postcard-1.html',
+      link: '',
       desc: '來自「集合吧！動物森友會」的心意卡。',
       title: '動物森友會心意卡',
       btns: [
         {
           color: '#17c950',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/forms/acnh-postcard-1.html',
+          link: '',
           text: '🆓 免費製作',
           style: 'primary',
         },
@@ -99,13 +99,13 @@
     },
     {
       image: 'https://i.imgur.com/AjbhMam.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/forms/google-sheet.html',
+      link: '',
       desc: '來自 PsPrint 的樣板，上面有連結可以開啟，很適合用來製作個人名片！',
       title: 'Corporate Buzz',
       btns: [
         {
           color: '#17c950',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/forms/psprint-592.html',
+          link: '',
           text: '🆓 免費製作',
           style: 'primary',
         },
@@ -122,13 +122,13 @@
     },
     {
       image: 'https://i.imgur.com/tUvhifE.png',
-      link: 'https://taichunmin.idv.tw/liff-businesscard/forms/psprint-3949.html',
+      link: '',
       desc: '來自 PsPrint 的樣板，上面有連結可以開啟，很適合用來製作個人名片！',
       title: 'Right Align',
       btns: [
         {
           color: '#17c950',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/forms/psprint-3949.html',
+          link: '',
           text: '🆓 免費製作',
           style: 'primary',
         },

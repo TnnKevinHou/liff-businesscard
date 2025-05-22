@@ -186,20 +186,20 @@ block vue-config
               desc: '售價：USD $49.99',
               descColor: '#000000',
               image: 'https://i.imgur.com/yBjZFmf.png',
-              link: 'https://taichunmin.idv.tw/liff-businesscard/',
+              link: '',
               title: 'Arm Chair, White',
               titleColor: '#000000',
               btnColsQty: 1,
               btns: [
                 {
                   color: '#17c950',
-                  link: 'https://taichunmin.idv.tw/liff-businesscard/',
+                  link: '',
                   style: 'primary',
                   text: 'Add to Cart',
                 },
                 {
                   color: '#42659a',
-                  link: 'https://taichunmin.idv.tw/liff-businesscard/',
+                  link: '',
                   style: 'link',
                   text: 'Add to wishlist',
                 },
@@ -210,20 +210,20 @@ block vue-config
               desc: '售價：USD $11.99 (暫時缺貨)',
               descColor: '#000000',
               image: 'https://i.imgur.com/9w8tesj.png',
-              link: 'https://taichunmin.idv.tw/liff-businesscard/',
+              link: '',
               title: 'Metal Desk Lamp',
               titleColor: '#000000',
               btnColsQty: 1,
               btns: [
                 {
                   color: '#aaaaaa',
-                  link: 'https://taichunmin.idv.tw/liff-businesscard/',
+                  link: '',
                   style: 'primary',
                   text: 'Add to Cart',
                 },
                 {
                   color: '#42659a',
-                  link: 'https://taichunmin.idv.tw/liff-businesscard/',
+                  link: '',
                   style: 'link',
                   text: 'Add to wishlist',
                 },
@@ -241,7 +241,7 @@ block vue-config
           json5gzip: window.encodeGzip(JSON5.stringify(window.beautifyFlex(this.vcard.json5))),
         })
         if (!_.isString(params) || !params.length) return
-        return `https://liff.line.me/#{liffidFull}/share-json5gzip.html?${params}`
+        return `https://liff.line.me/#{liffidFull}/liff-full/share-json5gzip.html?${params}`
       },
       curCard () {
         return _.get(this, ['vcard', 'json5', 'cards', this.vcard.page])
@@ -265,12 +265,12 @@ block vue-config
         const cards = this.vcard.json5.cards
         cards.push({
           image: '',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/',
+          link: '',
           desc: '',
           title: '',
           btns: [{
             color: '#ffffff',
-            link: 'https://taichunmin.idv.tw/liff-businesscard/',
+            link: '',
             text: '',
             style: 'primary',
           }],
@@ -282,7 +282,7 @@ block vue-config
         if (!_.isArray(btns)) return
         btns.push({
           color: '#ffffff',
-          link: 'https://taichunmin.idv.tw/liff-businesscard/',
+          link: '',
           text: '分享給好友',
           style: 'primary',
         })
