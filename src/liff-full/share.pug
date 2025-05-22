@@ -167,7 +167,8 @@ block script
             // window.gtag.event('template_share', { method: 'liff_share', template_url: this.vcard.template })
             if (!liff.isApiAvailable('shareTargetPicker')) throw new Error(this.$t('share.unsupported'))
             const beforeShare = Date.now()
-            const res = await liff.shareTargetPicker(this.msgs)
+            const plainMsgs = JSON.parse(JSON.stringify(this.msgs))
+            const res = await liff.shareTargetPicker(plainMsgs)
             const afterShare = Date.now()
             if (_.get(res, 'status') !== 'success') {
               if (!slient) throw new Error(this.$t('share.canceled'))
