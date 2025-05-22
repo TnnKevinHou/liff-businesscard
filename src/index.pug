@@ -31,7 +31,13 @@ block content
             a.btn.btn-primary.mt-auto(:href='baseurl + card.form') #[i.fa.mr-2.fa-id-card-o] 點此建立名片
 
 block script
+  script(crossorigin="anonymous", src="https://static.line-scdn.net/liff/edge/2/sdk.js")
   script.
+    ;(async () => {
+      await liff.init({ liffId: '#{liffidFull}' })
+      const redirect = new URL(location).searchParams.get('redirect')
+      if (typeof redirect === 'string') location.href = new URL(redirect, location).href
+    })()
     const vm = new Vue({ // eslint-disable-line
       el: '#app',
       data: {
