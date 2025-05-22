@@ -1,3 +1,0 @@
-<%
-print(JSON.stringify(vcard))
-%>

@@ -2,8 +2,8 @@ extends /layout/forms
 
 block beforehtml
   -
-    title = '多頁訊息 1'
-    description = '來自 LINE 的樣板，最多 12 張卡片，很適合用來製作廣告傳單。'
+    title = 'Line 名片製作'
+    description = 'Line 名片快速製作'
 
 block meta
   meta(property="og:image:height", content="640")
@@ -127,6 +127,12 @@ block form
               small.form-text.text-muted 請填寫卡片圖片網址，必須是 #[code https://] 開頭，建議可將圖片#[a(target="_blank", href="https://hackmd.io/@docs/how_to_upload_image_tw") 上傳到 HackMD]。
               a.d-block.mt-2(v-if="curCardImgPreview", target="_blank", :href="curCardImgPreview")
                 img(:src="curCardImgPreview", :key="curCardImgPreview", style="width: 100%; max-width: 200px")
+            .form-group.was-validated.mb-2
+                label.btn-colsQty-label 按鈕每行顯示數量：(由左至右，由上至下)
+                div.btn-group.d-flex.mb-1(role="group")
+                  button.btn.btn-sm.btn-outline-info(:class="{ active: btnColsQty == 1 }" @click="btnColsQty = 1; setBtnColsQty(1)") 1
+                  button.btn.btn-sm.btn-outline-info(:class="{ active: btnColsQty == 2 }" @click="btnColsQty = 2; setBtnColsQty(2)") 2
+
       ul.list-group.list-group-flush
         li.list-group-item.pt-3.pb-2(v-for="btn, btnIdx in curCard.btns", :key="btnIdx")
           .row
@@ -165,6 +171,7 @@ block vue-config
       btnStyles: { link: '文字有指定顏色', primary: '白字與指定底色', secondary: '黑字與指定底色' },
       circleNum: '①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳', // https://www.unicode.org/charts/nameslist/n_2460.html
       fontSizes: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl', '4xl', '5xl'],
+      btnColsQty: 1,
       vcard: {
         page: 'setting',
         json5: {
@@ -182,6 +189,7 @@ block vue-config
               link: 'https://taichunmin.idv.tw/liff-businesscard/',
               title: 'Arm Chair, White',
               titleColor: '#000000',
+              btnColsQty: 1,
               btns: [
                 {
                   color: '#17c950',
@@ -205,6 +213,7 @@ block vue-config
               link: 'https://taichunmin.idv.tw/liff-businesscard/',
               title: 'Metal Desk Lamp',
               titleColor: '#000000',
+              btnColsQty: 1,
               btns: [
                 {
                   color: '#aaaaaa',
@@ -326,5 +335,9 @@ block vue-config
         newIdx %= len
         newIdx += (newIdx < 0 ? len : 0)
         arr.splice(newIdx, 0, ...arr.splice(oldIdx, 1))
+      },
+      setBtnColsQty (n) {
+        this.vcard.json5.cards[this.vcard.page].btnColsQty = n
+        console.log(n)
       },
     }

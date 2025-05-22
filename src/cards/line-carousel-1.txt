@@ -5,19 +5,6 @@ function gaScreenView (vcard) {
   const TEMPLATE_NAME = '多頁訊息1-2021/06/20'
   let hash = CryptoJS.HmacMD5(JSON.stringify(vcard), TEMPLATE_NAME)
   hash = CryptoJS.enc.Base64.stringify(hash).replace(/[+/=]/g, c => _.get({ '+': '-', '/': '_', '=': '' }, c))
-  return gtag.mpCollectUrl({
-    client_id: gtagClientId,
-    events: [{
-      name: 'template_impression',
-      params: {
-        session_id: gtagSessionId,
-        share_by: profile.userId ?? 'unknown',
-        template_name: TEMPLATE_NAME,
-        vcard_hash: hash,
-        vcard_name: _.get(vcard, 'cards.0.title'),
-      },
-    }],
-  })
 }
 function renderBtn (ctx) {
   const { btn, vcard } = ctx
@@ -34,6 +21,35 @@ function renderBtn (ctx) {
     },
   }
 }
+function renderBtnGroup (ctx) {
+  const { card, vcard } = ctx
+  const btns = _.map(card.btns, btn => renderBtn({ ...ctx, btn }));
+  const cols = card.btnColsQty || 1;
+
+  if (cols === 1) {
+    return {
+      type: 'box',
+      layout: 'vertical',
+      contents: btns.map(btn => ({
+        type: 'box',
+        layout: 'horizontal',
+        contents: [btn]
+      }))
+    }
+  }
+
+  const grouped = _.chunk(btns, cols);
+  return {
+    type: 'box',
+    layout: 'vertical',
+    contents: grouped.map(row => ({
+      type: 'box',
+      layout: 'horizontal',
+      contents: row
+    }))
+  }
+}
+
 function renderCard (ctx) {
   const { card, cardIdx, vcard } = ctx
   const uri = _.trim(card.link || DEFAULT_LINK)
@@ -64,7 +80,7 @@ function renderCard (ctx) {
         {
           color: card.titleColor || '#000000',
           size: vcard.titleSize || 'xl',
-          text: card.title,
+          text: card.title + card.btnColsQty,
           type: 'text',
           weight: 'bold',
           wrap: true,
@@ -101,7 +117,9 @@ function renderCard (ctx) {
       layout: 'vertical',
       spacing: 'sm',
       type: 'box',
-      contents: _.map(card.btns, btn => renderBtn({ ...ctx, btn })),
+      contents: [
+        renderBtnGroup({ card, vcard })
+      ],
     },
   }
 }
