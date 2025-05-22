@@ -48,7 +48,7 @@ html
       .row.mx-n2.my-2.d-flex
         button.btn.btn-danger.flex-fill.mx-2.my-1(type="button", @click="btnReset") #[i.fa.mr-2.fa-repeat] 重設表單
         button.btn.btn-info.flex-fill.mx-2.my-1(type="button", @click="btnExport") #[i.fa.mr-2.fa-code] 匯出匯入
-        button.btn.btn-success.flex-fill.mx-2.my-1(type="button", @click="btnPreview") #[i.fa.mr-2.fa-code] 預覽名片
+        button.btn.btn-success.flex-fill.mx-2.my-1(type="button", @click="btnPreview") #[i.fa.mr-2.fa-eye] 預覽名片
         a.btn.btn-primary.flex-fill.mx-2.my-1(:href="shortcut", target="_blank") #[i.fa.mr-2.fa-id-card-o] 建立名片
       #modal-exportimport.modal.fade(data-backdrop="static", data-keyboard="false", tabindex="-1", ref="modalExportImport")
         .modal-dialog.modal-dialog-centered.modal-xl.align-items-stretch
@@ -60,9 +60,9 @@ html
               button.btn.btn-outline-success(type="button", @click="btnCopy(exportimport.text, $refs['modalExportImport'])") 複製
               button.btn.btn-secondary(type="button", @click="jqModal('modalExportImport', 'hide')") 關閉
               button.btn.btn-primary(type="button", @click="btnImport") 匯入
-    .table-responsive(style="background-color: #849ebf")
-    .chatbox.pt-3.w-100.d-none
-      #flex2html(ref="flex2html")
+      .table-responsive(style="background-color: #849ebf")
+      .chatbox.pt-3.w-100.d-none
+        #flex2html(ref="flex2html")
       
     script(crossorigin="anonymous", src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
     script(crossorigin="anonymous", src="https://cdn.jsdelivr.net/npm/crypto-js@3/crypto-js.min.js")
