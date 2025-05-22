@@ -237,7 +237,7 @@ block vue-config
       ...cfg.computed,
       shortcut () {
         const params = window.httpBuildQuery({
-          template: window.encodeBase64url('#{baseurl}cards/line-carousel-1.txt'),
+          // template: window.encodeBase64url('#{baseurl}cards/line-carousel-1.txt'),
           json5gzip: window.encodeGzip(JSON5.stringify(window.beautifyFlex(this.vcard.json5))),
         })
         if (!_.isString(params) || !params.length) return
@@ -338,6 +338,5 @@ block vue-config
       },
       setBtnColsQty (n) {
         this.vcard.json5.cards[this.vcard.page].btnColsQty = n
-        console.log(n)
       },
     }

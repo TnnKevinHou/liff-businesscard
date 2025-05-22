@@ -89,9 +89,7 @@ block script
             this.getVcard(),
           ])
           this.msgs = this.getRenderedMsgs()
-          console.log(this.msgs)
           for (const msg of this.msgs) {
-            console.log(msg)
             window.flex2html('flex2html', msg)
           }
           this.hideLoading()
@@ -113,7 +111,7 @@ block script
         async getTpl () {
           // const { gtag } = window
           try {
-            const tpl = this.paramBase64url('template')
+            const tpl = '#{baseurl}cards/line-carousel-1.txt'
             if (_.isNil(tpl)) throw new Error('template is required.')
             const render = _.template(_.get(await axios.get(tpl, {
               params: { cachebust: Date.now() },
