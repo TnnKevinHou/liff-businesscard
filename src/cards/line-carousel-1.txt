@@ -14,6 +14,7 @@ function renderBtn (ctx) {
     height: vcard.btnHeight || 'md',
     style: btn.style || 'primary',
     type: 'button',
+    margin: '4px',
     action: {
       label: btn.text || '預設按鈕文字',
       type: 'uri',
@@ -21,8 +22,8 @@ function renderBtn (ctx) {
     },
   }
 }
-function renderBtnGroup (ctx) {
-  const { card, vcard } = ctx
+function renderBtnGroup(ctx) {
+  const { card, vcard } = ctx;
   const btns = _.map(card.btns, btn => renderBtn({ ...ctx, btn }));
   const cols = card.btnColsQty || 1;
 
@@ -42,11 +43,32 @@ function renderBtnGroup (ctx) {
   return {
     type: 'box',
     layout: 'vertical',
-    contents: grouped.map(row => ({
-      type: 'box',
-      layout: 'horizontal',
-      contents: row
-    }))
+    contents: grouped.map(row => {
+      if (row.length === 2) {
+        return {
+          type: 'box',
+          layout: 'horizontal',
+          contents: [
+            row[0],
+            {
+              type: 'box',
+              layout: 'vertical',
+              width: '4px',
+              height: '40px',
+              margin: 'none',
+              contents: []
+            },
+            row[1]
+          ]
+        }
+      } else {
+        return {
+          type: 'box',
+          layout: 'horizontal',
+          contents: row
+        }
+      }
+    })
   }
 }
 
