@@ -22,6 +22,7 @@ function renderBtn (ctx) {
     },
   }
 }
+
 function renderBtnGroup(ctx) {
   const { card, vcard } = ctx;
   const btns = _.map(card.btns, btn => renderBtn({ ...ctx, btn }));
@@ -42,31 +43,14 @@ function renderBtnGroup(ctx) {
   const grouped = _.chunk(btns, cols);
   return {
     type: 'box',
-    layout: 'vertical',
+    layout: 'horizontal',
+    margin: 'md',
     contents: grouped.map(row => {
-      if (row.length === 2) {
-        return {
-          type: 'box',
-          layout: 'horizontal',
-          contents: [
-            row[0],
-            {
-              type: 'box',
-              layout: 'vertical',
-              width: '4px',
-              height: '40px',
-              margin: 'none',
-              contents: []
-            },
-            row[1]
-          ]
-        }
-      } else {
-        return {
-          type: 'box',
-          layout: 'horizontal',
-          contents: row
-        }
+      return {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'md',
+        contents: row
       }
     })
   }
